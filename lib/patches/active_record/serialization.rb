@@ -15,6 +15,7 @@ module ActiveRecord
                     Coders::YAMLColumn.new(class_name_or_coder)
                   end
 
+          self.globalize_serialized_attributes = globalize_serialized_attributes.dup
           self.globalize_serialized_attributes[attr_name] = coder
         end
         alias_method_chain :serialize, :globalize
